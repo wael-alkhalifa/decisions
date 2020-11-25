@@ -1,0 +1,702 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* decisions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-13 18:09+0000\n"
+"PO-Revision-Date: 2020-11-13 18:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__14
+msgid " enter partner"
+msgstr "طلب ادخال شريك"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__18
+msgid " reissued request"
+msgstr "طلب اعادة صادر"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__8
+msgid " resumption request"
+msgstr "طلب استئناف"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__4
+msgid " typical privileges"
+msgstr "طلب مميزات نمطية"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid ""
+"<b style=\"font-family:Droid Arabic Kufi, serif !important;\">تقرير  طلبات "
+"القرارات </b>"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid ""
+"<span>التاريخ</span>\n"
+"                        <span> : </span>"
+msgstr ""
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__report_type__1
+msgid "All"
+msgstr "الكل"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "Business Name"
+msgstr "اسم العمل"
+
+#. module: decisions
+#: model:res.groups,name:decisions.decisions_business_names_registrar
+msgid "Business Names Registrar"
+msgstr "مسجل اسماء الاعمال"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_wizard_form
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__create_uid
+#: model:ir.model.fields,field_description:decisions.field_report_decisions_print_sample_report__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__create_date
+#: model:ir.model.fields,field_description:decisions.field_report_decisions_print_sample_report__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: decisions
+#: model:res.groups,name:decisions.decisions_customs
+msgid "Customs"
+msgstr "الجمارك"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "Customs withdrawal"
+msgstr "السحب الجمركي"
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__date_from
+msgid "Date From"
+msgstr "الفترة من"
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__date_to
+msgid "Date To"
+msgstr "الفترة الى"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "Delivery"
+msgstr "التسليم"
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__display_name
+#: model:ir.model.fields,field_description:decisions.field_report_decisions_print_sample_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: decisions
+#: model:res.groups,name:decisions.follow-up_and_evaluation_employee2
+msgid "Follow-up and evaluation employee"
+msgstr "موظف المتابعة والتقيم"
+
+#. module: decisions
+#: model:res.groups,name:decisions.decisions_general_secretary
+msgid "General Secretary"
+msgstr "الامين العام"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "General Secretary confirm"
+msgstr "موافقة الامين العام"
+
+#. module: decisions
+#: model:res.groups,name:decisions.decisions_general_manager
+msgid "General manager"
+msgstr "المدير العام للادارة"
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__id
+#: model:ir.model.fields,field_description:decisions.field_report_decisions_print_sample_report__id
+msgid "ID"
+msgstr ""
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard____last_update
+#: model:ir.model.fields,field_description:decisions.field_report_decisions_print_sample_report____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__write_uid
+#: model:ir.model.fields,field_description:decisions.field_report_decisions_print_sample_report__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__write_date
+#: model:ir.model.fields,field_description:decisions.field_report_decisions_print_sample_report__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: decisions
+#: model:res.groups,name:decisions.decisions_Legal_advisor
+msgid "Legal advisor"
+msgstr "المستشار القانوني"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "Legal advisor confirm"
+msgstr "الرأي القانوني"
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__name
+msgid "Order by"
+msgstr "مقدم الطلب"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.view_pivot
+msgid "Pivot View"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "Prepare"
+msgstr "للاعداد"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "Prepare decision"
+msgstr "اعداد القرار"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "Prepare letter"
+msgstr "اعداد الخطاب"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "Prepare note"
+msgstr "اعداد مذكرة"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_wizard_form
+msgid "Print"
+msgstr "طباعة"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "Receipt letter"
+msgstr "استلام الخطاب"
+
+#. module: decisions
+#: model:ir.ui.menu,name:decisions.decisions_wizard_menu
+msgid "Report"
+msgstr "التقارير"
+
+#. module: decisions
+#: model:ir.actions.report,name:decisions.print_report_pdf
+msgid "Sample Report"
+msgstr "التقرير"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "apology letter"
+msgstr "خطاب اعتذار"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "attachments"
+msgstr "مرفقات"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__15
+msgid "breakup partnership"
+msgstr "طلب فض شراكة"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__report_type__5
+msgid "by name"
+msgstr "حسب مقدم الطلب"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__report_type__3
+msgid "by project"
+msgstr "حسب المشروع"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__report_type__2
+msgid "by request type"
+msgstr "حسب نوع الطلب"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__report_type__4
+msgid "by section"
+msgstr "حسب القطاع"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__19
+msgid "cancel license"
+msgstr "طلب الغاء الترخيص"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__11
+msgid "change activity"
+msgstr "طلب تغيير نشاط"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__16
+msgid "change businessname"
+msgstr "تغيير اسم العمل"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__12
+msgid "conduct request"
+msgstr "طلب تصرف"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "confirm letter"
+msgstr "اعداد خطاب الموافقة"
+
+#. module: decisions
+#: model:res.groups,name:decisions.decisions_counter
+msgid "counter"
+msgstr "الكاونتر"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "data confirm"
+msgstr "تحقق من البيانات"
+
+#. module: decisions
+#: code:addons/decisions/wizard/wizard.py:0
+#, python-format
+msgid "date warning"
+msgstr "تحذير"
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__date_now
+msgid "date_now"
+msgstr ""
+
+#. module: decisions
+#: model:ir.ui.menu,name:decisions.menu_root
+msgid "decisions"
+msgstr "القرارات"
+
+#. module: decisions
+#: model:ir.actions.act_window,name:decisions.action_window
+msgid "decisions window"
+msgstr "الطلب"
+
+#. module: decisions
+#: model:ir.actions.act_window,name:decisions.decisions_wizard_window
+#: model:ir.model,name:decisions.model_decisions_wizard
+msgid "decisions wizard"
+msgstr "التقارير"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "edit"
+msgstr "تعديل"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "field visit"
+msgstr "انشاء زيارة ميدانية"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "field_visit"
+msgstr "الزيارة الميدانية"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "general manager confirm"
+msgstr "موافقة المدير العام الادارة"
+
+#. module: decisions
+#: code:addons/decisions/wizard/wizard.py:0
+#, python-format
+msgid "invalid Date"
+msgstr "تاريخ غير صحيح"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__3
+msgid "license renewal"
+msgstr "طلب تجديد ترخيص"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__7
+msgid "model exception"
+msgstr "طلب استثناء موديل"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__9
+msgid "modify decision"
+msgstr "طلب تعديل قرار"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__13
+msgid "mortgage_request"
+msgstr "طلب رهن"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__2
+msgid "needs statement"
+msgstr "طلب كشف احتياجات"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "no"
+msgstr "لا"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "note"
+msgstr "ملحوظات"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_wizard_form
+msgid "or"
+msgstr "او"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "pay"
+msgstr "سداد"
+
+#. module: decisions
+#: model:ir.actions.report,name:decisions.decisions_payment_doc
+msgid "payment"
+msgstr "اذن دفع"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "print payment"
+msgstr "طباعة اذن دفع"
+
+#. module: decisions
+#: model:res.groups,name:decisions.decisions_profile
+msgid "profile"
+msgstr "بروفايل"
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__project
+msgid "project"
+msgstr "المشروع"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "redirct"
+msgstr "توجيه"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "reject"
+msgstr "رفض"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__10
+msgid "renewal decision"
+msgstr "طلب تجديد قرار"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__1
+msgid "rental form"
+msgstr "طلب موقع مؤجر"
+
+#. module: decisions
+#: model:ir.model,name:decisions.model_report_decisions_print_sample_report
+msgid "report.decisions.print_sample_report"
+msgstr "تقرير"
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__report_type
+msgid "report_type"
+msgstr "نوع التقرير"
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__request_type
+msgid "request type"
+msgstr "نوع الطلب"
+
+#. module: decisions
+#: model:ir.ui.menu,name:decisions.requests
+msgid "requests"
+msgstr "الطلبات"
+
+#. module: decisions
+#: model:ir.model.fields,field_description:decisions.field_decisions_wizard__section
+#: model:res.groups,name:decisions.decisions_section
+msgid "section"
+msgstr "القطاع"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "section  confirm"
+msgstr "موافقة القطاع"
+
+#. module: decisions
+#: model:res.groups,name:decisions.decisions_section_manager
+msgid "section manager"
+msgstr "مديرالقطاع"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "section manager confirm"
+msgstr "موافقة مديرالقطاع"
+
+#. module: decisions
+#: model:res.groups,name:decisions.decisions_user
+msgid "service employee"
+msgstr "موظف الخدمة الشاملة"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__5
+msgid "shapeliness request"
+msgstr "طلب جملون"
+
+#. module: decisions
+#: model:res.groups,name:decisions.decisions_technical_authority
+msgid "technical authority"
+msgstr "الجهة الفنية"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "technical_authority_confirm"
+msgstr "موافقة الجهة الفنية"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__17
+msgid "transfer_ownership"
+msgstr "طلب تحويل ملكية"
+
+#. module: decisions
+#: model:ir.model.fields.selection,name:decisions.selection__decisions_wizard__request_type__6
+msgid "transportation recommendation"
+msgstr "طلب توصية وسائل نقل"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "update profile"
+msgstr "تحديث البروفايل"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_form
+msgid "yes"
+msgstr "نعم"
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_print_payment
+msgid "التاريخ"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_print_payment
+msgid "التوقيع"
+msgstr ""
+
+#. module: decisions
+#: model:ir.module.category,name:decisions.decisions_category
+msgid "القرارات"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "القطاع"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_print_payment
+msgid "المبلغ"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_print_payment
+msgid "المبلغ المستلم"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_print_payment
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "المشروع"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_print_payment
+msgid "الموظف"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "تاريخ الطلب"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "تقرير  طلبات القرارات حسب  القطاع"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "تقرير  طلبات القرارات حسب  المشروع"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "تقرير  طلبات القرارات حسب  النوع"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "تقرير  طلبات القرارات حسب  مقدم الطلب"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_print_payment
+msgid "تم بواسطة الشئون المالية"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_print_payment
+msgid "رقم  الايصال"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "رقم الطلب"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب ادخال شريك"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب استثناء موديل"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب استنأف"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب اعادة صادر"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب الغاء ترخيص"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب تجديد ترخيص"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب تجديد قرار"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب تحويل ملكية"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب تصرف"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب تعديل قرار"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب تغيير اسم العمل"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب تغيير نشاط"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب توصية وسائل نقل"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب جملون"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب رهن"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب فض شراكة"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب كشف  احتياجات"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب مميزات نمطية"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "طلب موقع مؤجر"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_print_payment
+msgid "عبارة عن"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.decisions_print_payment
+msgid "مدير الشئون المالية"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "مقدم الطلب"
+msgstr ""
+
+#. module: decisions
+#: model_terms:ir.ui.view,arch_db:decisions.print_sample_report
+msgid "نوع الطلب"
+msgstr ""

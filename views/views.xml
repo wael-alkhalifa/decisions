@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="increment_your_field_sequence" model="ir.sequence">
+      <field name="name">Field Incrementation</field>
+      <field name="code">increment_your_field</field>
+      <field name="prefix"></field>
+      <field name="padding">3</field>
+      <field name="company_id" eval="False"/>
+    </record>
+    <report id="decisions_payment_doc" string="payment" model="decisions.decisions" report_type="qweb-pdf" name="decisions.decisions_print_payment" file="decisions.decisions_print_payment" />
+
+    <template id="decisions_print_payment">
+      <t t-call="web.external_layout">
+        <t t-call="web.html_container">
+
+
+          <div class="page" style="width:100%;font-family: 'AmiriQuranRegular', serif !important;">
+            <center>
+              <img src="/decisions/static/src/rep_header.png" style="width:1300px;height:184px;margin-left:3px;"/>
+            </center>
+            <br />
+
+            <br />
+
+            <t t-foreach="docs" t-as="i">
+              <table class="table" style="text-align:center;direction:rtl">
+                <thead>
+                  <tr style="direction:center">
+
+
+                    <center>
+                      <th style="text-align:center;background-color:#d9dadc !important;">التاريخ</th>
+                    </center>
+                    <center>
+                      <th style="text-align:center;background-color:#d9dadc !important;">المشروع </th>
+                    </center>
+                    <center>
+                      <th style="text-align:center;background-color:#d9dadc !important;">المبلغ</th>
+                    </center>
+                    <center>
+                      <th style="text-align:center;background-color:#d9dadc !important;">عبارة عن</th>
+                    </center>
+                    <center>
+                      <th style="text-align:center;background-color:#d9dadc !important;"> الموظف</th>
+                    </center>
+                    <center>
+                      <th style="text-align:center;background-color:#d9dadc !important;">التوقيع</th>
+                    </center>
+
+
+
+
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr >
+
+
+                    <td>
+                      <span t-esc="i['date_now']"/>
+                    </td>
+                    <p />
+                    <td>
+                      <span t-field="i.project_id.name"/>
+                    </td>
+                    <p />
+                    <td>
+                      <span t-field="i.fees.amount"/>
+                    </td>
+                    <p />
+                    <td>
+                      <span t-field="i.fees.name"/>
+                    </td>
+                    <p />
+                    <td>
+                      <span t-field="i.write_uid.name"/>
+                    </td>
+                    <p />
+                    <td>
+
+                    </td>
+                    <p />
+                  </tr>
+
+                </tbody>
+              </table>
+
+              <table class="table" style="text-align:center;direction:rtl">
+                <thead>
+                  <tr style="direction:center">
+
+
+                    <center>
+                      <th style="text-align:center;background-color:#d9dadc !important;">التاريخ</th>
+                    </center>
+
+                    <center>
+                      <th style="text-align:center;background-color:#d9dadc !important;"> المبلغ المستلم</th>
+                    </center>
+                    <center>
+                      <th style="text-align:center;background-color:#d9dadc !important;">رقم  الايصال</th>
+                    </center>
+                    <center>
+                      <th style="text-align:center;background-color:#d9dadc !important;"> مدير الشئون المالية</th>
+                    </center>
+                    <center>
+                      <th style="text-align:center;background-color:#d9dadc !important;">التوقيع</th>
+                    </center>
+
+
+
+
+
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr >
+
+
+                    <td>
+                      <span t-esc="i['date_now']"/>
+                    </td>
+                    <p />
+
+                    <td>
+                      <span t-field="i.fees.amount"/>
+                    </td>
+                    <p />
+                    <td>
+
+                    </td>
+                    <p />
+                    <td>
+
+                    </td>
+                    <p />
+                    <td>
+
+                    </td>
+                    <p />
+                  </tr>
+
+                </tbody>
+              </table>
+
+
+
+
+
+              <br />
+              <div class="container" style="text-align:right;font-family:Droid Arabic Kufi, serif !important;">
+
+
+
+                <p class="row"> تم بواسطة الشئون المالية</p>
+
+
+              </div>
+            </t>
+          </div>
+
+
+        </t>
+      </t>
+    </template>
+    <!--************** decisions **************************************-->
+    <record model="ir.ui.view" id="decisions_list">
+      <field name="name">decisions </field>
+      <field name="model">decisions.decisions</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="company_id"/>
+          <field name="project_id"/>
+          <field name="section"/>
+          <field name="request_type"/>
+          <field name="order_number"/>
+          <field name="order_date"/>
+          <field name="name"/>
+          <field name="respansiable" />
+
+
+
+        </tree>
+      </field>
+    </record>
+    <!-- model.name form view -->
+    <record id="decisions_form" model="ir.ui.view">
+      <field name="name">decisions</field>
+      <field name="model">decisions.decisions</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <header>
+
+            <field name="daft_check" invisible="1"/>
+            <field name="request_type" invisible="1"/>
+            <field name="rental_form" widget="statusbar" statusbar_visible="1" class="btn-primary" attrs="{'invisible': [('request_type', 'not in', ['1','13'])]}" />
+            <field name="needs_statements" widget="statusbar" statusbar_visible="1" class="oe_highlight" attrs="{'invisible': [('request_type', '!=', '2')]}" />
+            <field name="license_renewal" widget="statusbar" class="oe_highlight" statusbar_visible="1" attrs="{'invisible': [('request_type','not in', ['3','19'])]}" />
+            <field name="model_exception" widget="statusbar" statusbar_visible="1" class="oe_highlight" attrs="{'invisible': [('request_type', '!=', '7')]}" />
+            <field name="modify_decision" widget="statusbar" statusbar_visible="1" class="oe_highlight" attrs="{'invisible': [('request_type','not in', ['4','5','9','10','12','18'])]}" />
+            <field name="change_activity" widget="statusbar" statusbar_visible="1" class="oe_highlight" attrs="{'invisible': [('request_type', 'not in', ['6','11','8'])]}" />
+            <field name="enter_partner" widget="statusbar" statusbar_visible="1" class="oe_highlight" attrs="{'invisible': [('request_type', 'not in', ['14','15','16','17'])]}" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <button name="daft_check_confirm" string="data confirm" class="oe_highlight" type="object" groups="decisions.decisions_user" />
+
+
+            <button name="enter_partner_confirm" string="pay" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('enter_partner', 'not in', ['2','18'])]}" />
+            <button name="enter_partner_confirm" string="print payment" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('enter_partner', 'not in', ['2','18'])]}" />
+            <button name="enter_partner_confirm" string="yes" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('enter_partner', '!=', '3')]}" />
+            <button name="enter_partner_reject" string="no" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('enter_partner', '!=', '3')]}" />
+            <button name="enter_partner_confirm" string="technical_authority_confirm" class="oe_highlight" type="object" groups="decisions.decisions_technical_authority" attrs="{'invisible': [('enter_partner', '!=', '4')]}" />
+            <button name="enter_partner_confirm" string="section  confirm" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('enter_partner', '!=', '5')]}" />
+            <button name="enter_partner_confirm" string="yes" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('enter_partner', '!=', '6')]}" />
+            <button name="enter_partner_reject" string="no" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('enter_partner', '!=', '6')]}" />
+            <button name="enter_partner_confirm" string="field visit" class="oe_highlight" type="object" groups="decisions.follow-up_and_evaluation_employee2" attrs="{'invisible': [('enter_partner', '!=', '7')]}" />
+
+
+
+
+            <button name="enter_partner_confirm" string="Prepare note" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('enter_partner', '!=', '8')]}" />
+            <button name="enter_partner_confirm" string="section manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('enter_partner', '!=', '9')]}" />
+            <button name="enter_partner_confirm" string="general manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('enter_partner', '!=', '10')]}" />
+            <button name="enter_partner_confirm" string="Legal advisor confirm" class="oe_highlight" type="object" groups="decisions.decisions_Legal_advisor" attrs="{'invisible': [('enter_partner', '!=', '11')]}" />
+            <button name="enter_partner_confirm" string="redirct" class="oe_highlight" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('enter_partner', '!=', '12')]}" />
+            <button name="enter_partner_confirm" string="Prepare" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('enter_partner', '!=', '13')]}" />
+            <button name="enter_partner_confirm" string="section  confirm" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('enter_partner', '!=', '14')]}" />
+            <button name="enter_partner_confirm" string="Business Name" class="oe_highlight" type="object" groups="decisions.decisions_business_names_registrar" attrs="{'invisible': [('enter_partner', '!=', '14a')]}" />
+            <button name="enter_partner_confirm" string="Prepare decision" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('enter_partner', '!=', '14b')]}" />
+            <button name="enter_partner_confirm" string="section manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('enter_partner', '!=', '15')]}" />
+            <button name="enter_partner_confirm" string="general manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('enter_partner', '!=', '16')]}" />
+            <button name="enter_partner_confirm" string="General Secretary confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_secretary" attrs="{'invisible': [('enter_partner', '!=', '17')]}" />
+            <button name="enter_partner_confirm" string="Delivery" class="oe_highlight" type="object" groups="decisions.decisions_counter" attrs="{'invisible': [('enter_partner', '!=', '19')]}" />
+            <button name="enter_partner_confirm" string="update profile" class="oe_highlight" type="object" groups="decisions.decisions_profile" attrs="{'invisible': [('enter_partner', '!=', '21')]}" />
+
+            <!-- <button name="enter_partner_reject" string="reject" class="btn-danger" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('enter_partner', '!=', '14b')]}"/> -->
+            <button name="enter_partner_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('enter_partner', '!=', '15')]}"/>
+            <button name="enter_partner_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('enter_partner', '!=', '16')]}"/>
+            <button name="enter_partner_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_general_secretary" attrs="{'invisible': [('enter_partner', '!=', '17')]}"/>
+            <button name="enter_partner_reject" string="apology letter" class="btn-danger" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('enter_partner', '!=', '20')]}"/>
+
+
+
+
+
+
+
+            <button name="change_activity_confirm" string="pay" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('change_activity', 'not in', ['2','18'])]}" />
+            <button name="print_payment" string="print payment" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('change_activity', 'not in', ['2','18'])]}" />
+            <button name="change_activity_confirm" string="yes" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('change_activity', '!=', '3')]}" />
+            <button name="change_activity_reject" string="no" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('change_activity', '!=', '3')]}" />
+            <button name="change_activity_confirm" string="technical_authority_confirm" class="oe_highlight" type="object" groups="decisions.decisions_technical_authority" attrs="{'invisible': [('change_activity', '!=', '4')]}" />
+            <button name="change_activity_confirm" string="section  confirm" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('change_activity', '!=', '5')]}" />
+            <button name="change_activity_confirm" string="yes" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('change_activity', '!=', '6')]}" />
+            <button name="change_activity_reject" string="no" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('change_activity', '!=', '6')]}" />
+            <button name="change_activity_confirm" string="field visit" class="oe_highlight" type="object" groups="decisions.follow-up_and_evaluation_employee2" attrs="{'invisible': [('change_activity', '!=', '7')]}" />
+
+
+
+
+            <button name="change_activity_confirm" string="Prepare note" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('change_activity', '!=', '8')]}" />
+            <button name="change_activity_confirm" string="section manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('change_activity', '!=', '9')]}" />
+            <button name="change_activity_confirm" string="general manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('change_activity', '!=', '10')]}" />
+            <button name="change_activity_confirm" string="Prepare" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('change_activity', '!=', '13')]}" />
+            <button name="change_activity_confirm" string="Prepare decision" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('change_activity', '!=', '14')]}" />
+            <button name="change_activity_confirm" string="section manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('change_activity', '!=', '15')]}" />
+            <button name="change_activity_confirm" string="general manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('change_activity', '!=', '16')]}" />
+            <button name="change_activity_confirm" string="General Secretary confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_secretary" attrs="{'invisible': [('change_activity', '!=', '17')]}" />
+            <button name="change_activity_confirm" string="Delivery" class="oe_highlight" type="object" groups="decisions.decisions_counter" attrs="{'invisible': [('change_activity', '!=', '19')]}" />
+            <button name="change_activity_confirm" string="update profile" class="oe_highlight" type="object" groups="decisions.decisions_profile" attrs="{'invisible': [('change_activity', '!=', '21')]}" />
+
+            <button name="change_activity_reject" string="reject" class="btn-danger" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('change_activity', '!=', '14')]}"/>
+            <button name="change_activity_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('change_activity', '!=', '15')]}"/>
+            <button name="change_activity_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('change_activity', '!=', '16')]}"/>
+            <button name="change_activity_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_general_secretary" attrs="{'invisible': [('change_activity', '!=', '17')]}"/>
+            <button name="change_activity_reject" string="apology letter" class="btn-danger" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('change_activity', '!=', '20')]}"/>
+
+
+            <button name="rental_confirm" string="pay" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('rental_form', 'not in', ['2','18'])]}" />
+            <button name="print_payment" string="print payment" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('rental_form', 'not in', ['2','18'])]}" />
+            <button name="rental_confirm" string="yes" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('rental_form', '!=', '3')]}" />
+            <button name="rental_reject" string="no" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('rental_form', '!=', '3')]}" />
+            <button name="rental_confirm" string="technical_authority_confirm" class="oe_highlight" type="object" groups="decisions.decisions_technical_authority" attrs="{'invisible': [('rental_form', '!=', '4')]}" />
+            <button name="rental_confirm" string="section  confirm" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('rental_form', '!=', '5')]}" />
+            <button name="rental_confirm" string="yes" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('rental_form', '!=', '6')]}" />
+            <button name="rental_reject" string="no" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('rental_form', '!=', '6')]}" />
+            <button name="rental_confirm" string="field visit" class="oe_highlight" type="object" groups="decisions.follow-up_and_evaluation_employee2" attrs="{'invisible': [('rental_form', '!=', '7')]}" />
+
+
+
+
+            <button name="rental_confirm" string="Prepare note" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('rental_form', '!=', '8')]}" />
+            <button name="rental_confirm" string="section manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('rental_form', '!=', '9')]}" />
+            <button name="rental_confirm" string="general manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('rental_form', '!=', '10')]}" />
+            <button name="rental_confirm" string="Legal advisor confirm" class="oe_highlight" type="object" groups="decisions.decisions_Legal_advisor" attrs="{'invisible': [('rental_form', '!=', '11')]}" />
+            <button name="rental_confirm" string="redirct" class="oe_highlight" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('rental_form', '!=', '12')]}" />
+            <button name="rental_confirm" string="Prepare" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('rental_form', '!=', '13')]}" />
+            <button name="rental_confirm" string="Prepare decision" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('rental_form', '!=', '14')]}" />
+            <button name="rental_confirm" string="section manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('rental_form', '!=', '15')]}" />
+            <button name="rental_confirm" string="general manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('rental_form', '!=', '16')]}" />
+            <button name="rental_confirm" string="General Secretary confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_secretary" attrs="{'invisible': [('rental_form', '!=', '17')]}" />
+            <button name="rental_confirm" string="Delivery" class="oe_highlight" type="object" groups="decisions.decisions_counter" attrs="{'invisible': [('rental_form', '!=', '19')]}" />
+            <button name="rental_confirm" string="update profile" class="oe_highlight" type="object" groups="decisions.decisions_profile" attrs="{'invisible': [('rental_form', '!=', '21')]}" />
+
+            <button name="rental_reject" string="reject" class="btn-danger" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('rental_form', '!=', '14')]}"/>
+            <button name="rental_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('rental_form', '!=', '15')]}"/>
+            <button name="rental_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('rental_form', '!=', '16')]}"/>
+            <button name="rental_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_general_secretary" attrs="{'invisible': [('rental_form', '!=', '17')]}"/>
+            <button name="rental_reject" string="apology letter" class="btn-danger" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('rental_form', '!=', '20')]}"/>
+
+
+            <button name="needs_statements_confirm" string="pay" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('needs_statements', '!=', '2')]}" />
+            <button name="print_payment" string="print payment" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('needs_statements', '!=', '2')]}" />
+            <button name="needs_statements_confirm" string="technical_authority_confirm" class="oe_highlight" type="object" groups="decisions.decisions_technical_authority" attrs="{'invisible': [('needs_statements', '!=', '3')]}" />
+
+            <button name="needs_statements_confirm" string="Prepare letter" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('needs_statements', '!=', '4')]}" />
+            <button name="needs_statements_confirm" string="section manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('needs_statements', '!=', '5')]}" />
+            <button name="needs_statements_confirm" string="Customs withdrawal" class="oe_highlight" type="object" groups="decisions.decisions_customs" attrs="{'invisible': [('needs_statements', '!=', '6')]}" />
+            <button name="needs_statements_confirm" string="update profile" class="oe_highlight" type="object" groups="decisions.decisions_profile" attrs="{'invisible': [('needs_statements', '!=', '7')]}" />
+            <button name="needs_statements_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('needs_statements', '!=', '5')]}"/>
+
+
+
+            <button name="license_renewal_confirm" string="pay" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('license_renewal', 'not in', ['2','16'])]}" />
+            <button name="print_payment" string="print payment" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('license_renewal', 'not in', ['2','16'])]}" />
+            <button name="license_renewal_confirm" string="yes" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('license_renewal', '!=', '3')]}" />
+            <button name="license_renewal_reject" string="no" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('license_renewal', '!=', '3')]}" />
+            <button name="license_renewal_confirm" string="technical_authority_confirm" class="oe_highlight" type="object" groups="decisions.decisions_technical_authority" attrs="{'invisible': [('license_renewal', '!=', '4')]}" />
+            <button name="license_renewal_confirm" string="Prepare note" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('license_renewal', '!=', '5')]}" />
+            <button name="license_renewal_confirm" string="section manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('license_renewal', '!=', '6')]}" />
+
+            <button name="license_renewal_confirm" string="yes" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('license_renewal', '!=', '7')]}" />
+            <button name="license_renewal_reject" string="no" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('license_renewal', '!=', '7')]}" />
+            <button name="license_renewal_confirm" string="Legal advisor confirm" class="oe_highlight" type="object" groups="decisions.decisions_Legal_advisor" attrs="{'invisible': [('license_renewal', '!=', '8')]}" />
+
+
+
+
+            <button name="license_renewal_confirm" string="section manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('license_renewal', '!=', '9')]}" />
+            <button name="license_renewal_confirm" string="Business Name" class="oe_highlight" type="object" groups="decisions.decisions_business_names_registrar" attrs="{'invisible': [('license_renewal', '!=', '10')]}" />
+            <button name="license_renewal_confirm" string="Prepare" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('license_renewal', '!=', '11')]}" />
+            <button name="license_renewal_confirm" string="Prepare decision" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('license_renewal', '!=', '12')]}" />
+            <button name="license_renewal_confirm" string="section manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('license_renewal', '!=', '13')]}" />
+            <button name="license_renewal_confirm" string="general manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('license_renewal', '!=', '14')]}" />
+            <button name="license_renewal_confirm" string="General Secretary confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_secretary" attrs="{'invisible': [('license_renewal', '!=', '15')]}" />
+            <button name="license_renewal_confirm" string="Delivery" class="oe_highlight" type="object" groups="decisions.decisions_counter" attrs="{'invisible': [('license_renewal', '!=', '17')]}" />
+            <button name="license_renewal_confirm" string="update profile" class="oe_highlight" type="object" groups="decisions.decisions_profile" attrs="{'invisible': [('license_renewal', '!=', '19')]}" />
+
+            <!-- <button name="license_renewal_reject" string="reject" class="btn-danger" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('license_renewal', '!=', '12')]}"/> -->
+            <button name="license_renewal_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('license_renewal', '!=', '13')]}"/>
+            <button name="license_renewal_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('license_renewal', '!=', '14')]}"/>
+            <button name="license_renewal_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_general_secretary" attrs="{'invisible': [('license_renewal', '!=', '15')]}"/>
+            <button name="license_renewal_reject" string="apology letter" class="btn-danger" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('license_renewal', '!=', '18')]}"/>
+
+
+
+            <button name="model_exception_confirm" string="pay" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('model_exception', '!=', '2')]}" />
+            <button name="print_payment" string="print payment" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('model_exception', '!=', '2')]}" />
+            <button name="model_exception_confirm" string="general manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('model_exception', '!=', '3')]}" />
+            <button name="model_exception_confirm" string="confirm letter" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('model_exception', '!=', '4')]}" />
+            <button name="model_exception_confirm" string="Receipt letter" class="oe_highlight" type="object" groups="decisions.decisions_customs" attrs="{'invisible': [('model_exception', '!=', '5')]}" />
+
+            <button name="model_exception_confirm" string="update profile" class="oe_highlight" type="object" groups="decisions.decisions_profile" attrs="{'invisible': [('model_exception', '!=', '6')]}" />
+            <button name="model_exception_confirm" string="apology letter" class="btn-danger" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('model_exception', '!=', '10')]}"/>
+            <button name="model_exception_reject" string="reject" class="btn-danger" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('model_exception', '!=', '4')]}"/>
+
+
+            <button name="modify_decision_confirm" string="pay" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('modify_decision', 'not in', ['2','18'])]}" />
+            <button name="print_payment" string="print payment" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('modify_decision', 'not in', ['2','18'])]}" />
+            <button name="modify_decision_confirm" string="yes" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('modify_decision', '!=', '3')]}" />
+            <button name="modify_decision_reject" string="no" class="oe_highlight" type="object" groups="decisions.decisions_user" attrs="{'invisible': [('modify_decision', '!=', '3')]}" />
+            <button name="modify_decision_confirm" string="technical_authority_confirm" class="oe_highlight" type="object" groups="decisions.decisions_technical_authority" attrs="{'invisible': [('modify_decision', '!=', '4')]}" />
+
+
+
+
+
+            <button name="modify_decision_confirm" string="Prepare note" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('modify_decision', '!=', '8')]}" />
+            <button name="modify_decision_confirm" string="section manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('modify_decision', '!=', '9')]}" />
+            <button name="modify_decision_confirm" string="redirct" class="oe_highlight" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('modify_decision', '!=', '10')]}" />
+            <button name="modify_decision_confirm" string="Prepare" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('modify_decision', '!=', '13')]}" />
+            <button name="modify_decision_confirm" string="Prepare decision" class="oe_highlight" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('modify_decision', '!=', '14')]}" />
+            <button name="modify_decision_confirm" string="section manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('modify_decision', '!=', '15')]}" />
+            <button name="modify_decision_confirm" string="general manager confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('modify_decision', '!=', '16')]}" />
+            <button name="modify_decision_confirm" string="General Secretary confirm" class="oe_highlight" type="object" groups="decisions.decisions_general_secretary" attrs="{'invisible': [('modify_decision', '!=', '17')]}" />
+            <button name="modify_decision_confirm" string="Delivery" class="oe_highlight" type="object" groups="decisions.decisions_counter" attrs="{'invisible': [('modify_decision', '!=', '19')]}" />
+            <button name="modify_decision_confirm" string="update profile" class="oe_highlight" type="object" groups="decisions.decisions_profile" attrs="{'invisible': [('modify_decision', '!=', '21')]}" />
+
+            <!-- <button name="modify_decision_reject" string="reject" class="btn-danger" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('modify_decision', '!=', '14')]}"/> -->
+            <button name="modify_decision_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_section_manager" attrs="{'invisible': [('modify_decision', '!=', '15')]}"/>
+            <button name="modify_decision_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_general_manager" attrs="{'invisible': [('modify_decision', '!=', '16')]}"/>
+            <button name="modify_decision_reject" string="edit" class="btn-danger" type="object" groups="decisions.decisions_general_secretary" attrs="{'invisible': [('modify_decision', '!=', '17')]}"/>
+            <button name="modify_decision_reject" string="apology letter" class="btn-danger" type="object" groups="decisions.decisions_section" attrs="{'invisible': [('modify_decision', '!=', '20')]}"/>
+
+
+
+          </header>
+          <sheet>
+            <group>
+              <field name="company_id"/>
+              <field name="respansiable"  domain="[('section','=',section)]"/>
+            </group>
+
+            <group col="4" colspan="4">
+              <!-- Add your fields here -->
+              <field name="request_type"/>
+              <field name="project_id"/>
+              <field name="technical_authority"/>
+              <field name="section"/>
+              <field name="name"/>
+              <field name="order_number"/>
+              <field name="order_date"/>
+              <field name="employee"/>
+             
+
+            </group>
+            <group col="4" colspan="4">
+               <field name="fees" />
+                <field name="receipt" />
+            </group>
+            <group col="4" colspan="4">
+              <field name="business_name" attrs="{'invisible': [('request_type', '!=', '1')]}"/>
+              <field name="phone" attrs="{'invisible': [('request_type', '!=', '1')]}"/>
+              <field name="rental_site" attrs="{'invisible': [('request_type', '!=', '1')]}"/>
+              <field name="land_number" attrs="{'invisible': [('request_type', '!=', '1')]}"/>
+              <field name="square" attrs="{'invisible': [('request_type', '!=', '1')]}"/>
+              <field name="area" attrs="{'invisible': [('request_type', '!=', '1')]}"/>
+              <field name="activity_description" attrs="{'invisible': [('request_type', '!=', '1')]}"/>
+              <field name="license_number" attrs="{'invisible': [('request_type', '!=', '1')]}"/>
+              <field name="license_date" attrs="{'invisible': [('request_type', '!=', '1')]}"/>
+              <field name="rent_reasons" attrs="{'invisible': [('request_type', '!=', '1')]}"/>
+              <field name="steps" attrs="{'invisible': [('request_type', '!=', '1')]}"/>
+
+            </group>
+            <notebook>
+              <page string="attachments">
+                <group>
+                  <field name="attachments">
+
+                    <tree create="true" delete="true" edit="true" editable="bottom">
+                      <field name="name"/>
+                      <field name="attachment"/>
+                    </tree>
+                  </field>
+
+                </group>
+              </page>
+              <page string="note">
+                <group>
+                  <field name="note"/>
+                  <field name="technical_authority_comment" />
+                  <field name="legal_advisor_comment" />
+                  <field name="business_name_registrar_comment"/>
+                  <field name="section_comment" />
+                  <field name="section_manager_comment" />
+                  <field name="general_manager_comment" />
+                  <field name="general_secretary_comment"/>
+                </group>
+              </page>
+              <page string="field_visit">
+                <group>
+                  <field name="field_visit" readonly="1"/>
+                </group>
+
+
+              </page>
+            </notebook>
+
+
+          </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+    </record>
+    <record id="view_pivot" model="ir.ui.view">
+      <field name="name">pivot</field>
+      <field name="model">decisions.decisions</field>
+      <field name="arch" type="xml">
+        <pivot string="Pivot View">
+
+          <field name="project" type="row"/>
+          <field name="section" type="row"/>
+          <field name="request_type" type="row"/>
+          <field name="order_number" type="row"/>
+          <field name="order_date" type="row"/>
+          <field name="name" type="row"/>
+        </pivot>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="decisions.action_window">
+      <field name="name">decisions window</field>
+      <field name="res_model">decisions.decisions</field>
+      <field name="view_mode">tree,form,pivot</field>
+    </record>
+    <menuitem name="decisions" id="decisions.menu_root" groups="decisions.decisions_user,decisions.decisions_technical_authority,decisions.decisions_business_names_registrar,decisions.decisions_section,decisions.decisions_section_manager,decisions.decisions_general_manager,decisions.decisions_general_secretary,decisions.decisions_counter,decisions.decisions_profile,decisions.decisions_customs,decisions.decisions_Legal_advisor,decisions.follow-up_and_evaluation_employee2"/>
+
+    <menuitem name="requests" id="decisions.requests" parent="decisions.menu_root" action="decisions.action_window" groups="decisions.decisions_user,decisions.decisions_technical_authority,decisions.decisions_business_names_registrar,decisions.decisions_section,decisions.decisions_section_manager,decisions.decisions_general_manager,decisions.decisions_general_secretary,decisions.decisions_counter,decisions.decisions_profile,decisions.decisions_customs,decisions.decisions_Legal_advisor,decisions.follow-up_and_evaluation_employee2" sequence="2"/>
+
+
+
+
+  </data>
+</odoo>
